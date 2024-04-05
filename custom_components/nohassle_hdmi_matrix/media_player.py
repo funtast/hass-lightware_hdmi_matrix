@@ -6,9 +6,9 @@ import urllib.request
 import voluptuous as vol
 
 from homeassistant.components.media_player import (
-    MediaPlayerEntity, PLATFORM_SCHEMA)
+    MediaPlayerEntity, MediaPlayerEntityFeature, PLATFORM_SCHEMA)
 from homeassistant.components.media_player.const import (
-    DOMAIN, SUPPORT_SELECT_SOURCE)
+    DOMAIN )
 from homeassistant.const import (
     ATTR_ENTITY_ID, CONF_HOST, CONF_NAME, CONF_TYPE, STATE_OFF,
     STATE_ON)
@@ -16,7 +16,7 @@ import homeassistant.helpers.config_validation as cv
 
 _LOGGER = logging.getLogger(__name__)
 
-SUPPORT_HDMIMATRIX = SUPPORT_SELECT_SOURCE
+SUPPORT_HDMIMATRIX = MediaPlayerEntityFeature.SELECT_SOURCE
 
 MEDIA_PLAYER_SCHEMA = vol.Schema({
     ATTR_ENTITY_ID: cv.comp_entity_ids,
